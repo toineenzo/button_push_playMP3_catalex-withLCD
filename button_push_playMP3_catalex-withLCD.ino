@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 SoftwareSerial mp3(7, 8);       //or white 4-pin D7
-¬¬
+
 static int8_t Send_buf[8] = {0};      // Buffer for Send commands. 
 
 #define button1 2                         //knop 1 zit op pin 2
@@ -43,8 +43,8 @@ void loop() {
     Send_buf[2] = 0x06;                //Lenght (number of bytes of the command w/o starting/ending byte)
     Send_buf[3] = 0X17;       //Type of command? (Play, pause, shuffle, volume set??)
     Send_buf[4] = 0x01;       // Give feedback? NO: 0x00 or YES: 0x01
-    Send_buf[5] = (int8_t)(0x0101 >> 8);  //datah – The data that will be be sent beside the command
-    Send_buf[6] = (int8_t)(0x0101);   //datal – The data that will be be sent beside the command
+    Send_buf[5] = (int8_t)(0x0201 >> 8);  //datah – The data that will be be sent beside the command
+    Send_buf[6] = (int8_t)(0x0201);   //datal – The data that will be be sent beside the command
     Send_buf[7] = 0xef;         //Close command
 
     for (uint8_t i = 0; i < 8; i++)  {
